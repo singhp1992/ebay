@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-class HomePage extends PureComponent {
+class Home extends PureComponent {
     render() {
-        const { product } = this.props
         return (
             <div>
-                <h1>{product.name}</h1>
+                <button type='buy'> Show me what I can buy! </button>
+                <button type='sell'> I'd like to post an ad! </button>
             </div>
         )
     }
 }
 
-export default HomePage
+export default Home
