@@ -43,4 +43,4 @@ const Advertisement = sequelize.define('advertisement', {
 
 
 //this code will test that it's working 
-Advertisement.findById(1).then(advertisement => console.log(JSON.stringify(advertisement)))
+Advertisement.findById(2).then(advertisement => console.log(JSON.stringify(advertisement)))
