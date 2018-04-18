@@ -1,5 +1,6 @@
 const Advertisement = require('./model')
 const Router = require('express').Router
+//not sure if the client stuff is necessary 
 // const { Client } = require('pg')
 
 // const connectionString = 'postgresql://postgres:secret@localhost:5432/postgres'
