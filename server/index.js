@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
-// const Advertisement = require('./advertisements/model')
+const bodyParser = require('body-parser')
+const advertisementsRouter = require('./advertisements/router')
+const Advertisement = require('./advertisements/model')
 
 var Sequelize = require('sequelize')
 var sequelize = new Sequelize('postgres://postgres:secret@localhost:5432/postgres')
@@ -14,33 +16,4 @@ app.use(function (req, res, next) {
     next()
 })
 
-const Advertisement = sequelize.define('advertisement', {
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    description: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    price: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-    },
-    image: Sequelize.STRING,
-    email: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    phone: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-}, {
-        tableName: 'advertisements',
-        timestamps: false
-    })
-
-
-//this code will test that it's working 
-Advertisement.findById(2).then(advertisement => console.log(JSON.stringify(advertisement)))
+app.use(advertisementsRouter)
