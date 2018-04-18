@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
+// const Advertisement = require('./advertisements/model')
 
 var Sequelize = require('sequelize')
 var sequelize = new Sequelize('postgres://postgres:secret@localhost:5432/postgres')
-
 
 app.listen(4001, () => console.log('Express API listening on port 4001'))
 
@@ -14,9 +14,12 @@ app.use(function (req, res, next) {
     next()
 })
 
-//this needs to be manipulated to ad table
 const Advertisement = sequelize.define('advertisement', {
     name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    description: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -24,11 +27,7 @@ const Advertisement = sequelize.define('advertisement', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    description: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    image: Sequelize.STRING, 
+    image: Sequelize.STRING,
     email: {
         type: Sequelize.STRING,
         allowNull: false
@@ -38,9 +37,10 @@ const Advertisement = sequelize.define('advertisement', {
         allowNull: false
     },
 }, {
-        tableName: 'products',
+        tableName: 'advertisements',
         timestamps: false
     })
+
 
 //this code will test that it's working 
 Advertisement.findById(1).then(advertisement => console.log(JSON.stringify(advertisement)))
