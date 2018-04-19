@@ -25,7 +25,7 @@ export const fetchAllAdvertisements = () => (dispatch) => {
             type: FETCHED_ALL_ADVERTISEMENTS,
             payload: response.body.advertisements
         }))
-        .catch(err => alert(err))
+        .catch(err => console.log(err))
 }
 
 export const createAdvertisement = (advertisement) => (dispatch) => {

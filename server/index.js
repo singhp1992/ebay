@@ -51,7 +51,7 @@ app.get('/advertisements', (request, response) => {
     })
         .then(result => {
             response.send({
-                ads: result
+                advertisements: result
             })
         })
         .catch(error => {

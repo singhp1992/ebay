@@ -61,7 +61,7 @@ class AdvertForm extends PureComponent {
 
                 <button type="submit">Save</button>
             </form>
-        )
+        ) 
     }
 }
 

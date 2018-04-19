@@ -14,9 +14,9 @@ class AdvertDetails extends PureComponent {
   //   })
   // }
 
-  componentWillMount(props) {
-    this.props.fetchAdvertisement(this.props.match.params.name)
-  }
+  // componentWillMount(props) {
+  //   this.props.fetchAdvertisement(this.props.match.params.name)
+  // }
 
   // updateAdvertisement = (advertisement) => {
   //   this.props.updateAdvertisement(this.props.match.params.id, advertisement)
@@ -52,4 +52,4 @@ const mapStateToProps = function (state, props) {
   }
 }
 
-export default connect(mapStateToProps, {fetchAdvertisement})(AdvertDetails)
+export default connect(mapStateToProps, { fetchAdvertisement })(AdvertDetails)

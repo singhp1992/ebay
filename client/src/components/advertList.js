@@ -8,12 +8,13 @@ import AdvertForm from './advertForm'
 
 class AdvertsList extends PureComponent {
 
-    createAdvertisement = (advertisement) => {
-        this.props.createAdvertisement(advertisement)
-    }
-
     componentWillMount() {
         this.props.fetchAllAdvertisements()
+    }
+
+    createAdvertisement = (e) => {
+        e.preventDefault()
+        this.props.createAdvertisement(e.target.id)
     }
 
     render() {
@@ -28,16 +29,16 @@ class AdvertsList extends PureComponent {
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
-                            {/* <th>Image</th> */}
-                            {/* <th>Email</th> */}
-                            {/* <th>Phone</th> */}
+                            <th>Image</th>
+                            <th>Email</th>
+                            <th>Phone</th>
                         </tr>
                     </thead>
                     <tbody>
                         { advertisements.map(advertisement => (<tr key={advertisement.id}>
                             <td>{advertisement.id}</td>
                             <td>
-                                <Link to={`/advertisements/${advertisement.id}`}>{advertisement.name}</Link>
+                                <Link id={advertisement.id} onSubmit={this.createAdvertisement} to={`/advertisements/${advertisement.id}`}>{advertisement.name}</Link>
                             </td>
                             <td>&euro; {advertisement.price}.00</td>
                         </tr>)) } 
@@ -45,7 +46,7 @@ class AdvertsList extends PureComponent {
                 </table>
                 <h1>Create a new Advert!</h1>
 
-                    <AdvertForm onSubmit={this.createAdvertisement} />
+                    <AdvertForm />
             </div>
         )
     }
