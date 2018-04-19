@@ -3,6 +3,6 @@ import advertisement from './advertisement'
 
 
 export default {
-    advertisements,
-    advertisement
+    advertisement,
+    advertisements
 }

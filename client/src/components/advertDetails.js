@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {fetchAdvertisement, updateAdvertisement} from '../actions/adverts'
-import AdvertForm from './advertForm'
+import {fetchAdvertisement} from '../actions/adverts'
+//import AdvertForm from './advertForm'
 
 class AdvertDetails extends PureComponent {
   // state = {
@@ -18,10 +18,10 @@ class AdvertDetails extends PureComponent {
     this.props.fetchAdvertisement(this.props.match.params.name)
   }
 
-  updateAdvertisement = (advertisement) => {
-    this.props.updateAdvertisement(this.props.match.params.id, advertisement)
-    this.toggleEdit()
-  }
+  // updateAdvertisement = (advertisement) => {
+  //   this.props.updateAdvertisement(this.props.match.params.id, advertisement)
+  //   this.toggleEdit()
+  // }
 
   render() {
     const {advertisement} = this.props
@@ -29,10 +29,10 @@ class AdvertDetails extends PureComponent {
 
     return (
       <div>
-        {
+        {/* {
           this.state.edit &&
           <AdvertForm initialValues={advertisement} onSubmit={this.updateAdvertisement} />
-        }
+        } */}
 
         {
           !this.state.edit &&
@@ -52,4 +52,4 @@ const mapStateToProps = function (state, props) {
   }
 }
 
-export default connect(mapStateToProps, {fetchAdvertisement, updateAdvertisement})(AdvertDetails)
+export default connect(mapStateToProps, {fetchAdvertisement})(AdvertDetails)
